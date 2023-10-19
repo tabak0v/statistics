@@ -68,7 +68,7 @@ def delete_data():  # ?password=29AF622358&id=43
 
 
 @app.route('/clear_space', methods=['GET'])
-def delete_data():  # ?password=29AF622358&id=43
+def delete_files():  # ?password=29AF622358&id=43
     try:
         os.rmdir("graphs")
         return jsonify({'SUCCESS': 'Data has been added!'})
