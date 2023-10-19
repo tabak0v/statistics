@@ -39,7 +39,6 @@ def show_data():
 def add_data():  # ?password=29AF622358&id=43
     try:
         data = {
-            'ID': request.args.get('ID'),
             'sex': request.args.get('sex'),
             'cleaner': request.args.get('cleaner'),
             'residents': request.args.get('residents'),
@@ -48,7 +47,8 @@ def add_data():  # ?password=29AF622358&id=43
             'school': request.args.get('school'),
             'GPA': request.args.get('GPA')
         }
-        df = pd.DataFrame(data, index=[int(data["ID"])])
+        df0 = pd.read_csv('data.csv', delimiter=',')
+        df = pd.DataFrame(data, index=[df0.shape[0] + 1])
         df.to_csv('data.csv', mode='a', index=False, header=False)
         return jsonify({'SUCCESS': 'Data appended successfully!'})
     except Exception as err:
