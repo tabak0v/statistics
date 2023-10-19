@@ -67,7 +67,7 @@ def delete_data():  # ?password=29AF622358&id=43
         return jsonify({'ERROR': err.__class__.__name__})
 
 
-@app.route('/clear_space', methods=['GET'])
+@app.route('/clear_space', methods=['DELETE', 'GET'])
 def delete_files():  # ?password=29AF622358&id=43
     try:
         os.rmdir("graphs")
