@@ -13,16 +13,18 @@ blueprint = flask.Blueprint(
 
 @blueprint.route('/api/add_data', methods=['POST', 'GET'])
 def add_data():  # ?password=29AF622358&id=43
+    print(request.get_json())
     if request.args.get('password') == '29AF622358':
         try:
+            args = request.get_json()
             data = {
-                'sex': request.args.get('sex'),
-                'cleaner': request.args.get('cleaner'),
-                'residents': request.args.get('residents'),
-                'grade': request.args.get('grade'),
-                'room_type': request.args.get('room_type'),
-                'school': request.args.get('school'),
-                'GPA': request.args.get('GPA')
+                'sex': args['sex'],
+                'cleaner': args['cleaner'],
+                'residents': args['residents'],
+                'grade': args['grade'],
+                'room_type': args['room_type'],
+                'school': args['school'],
+                'GPA': args['GPA']
             }
             df = pd.DataFrame(data)
             df.to_csv('data.csv', mode='a')
