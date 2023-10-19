@@ -13,6 +13,7 @@ blueprint = flask.Blueprint(
 
 @blueprint.route('/api/add_data', methods=['POST', 'GET'])
 def add_data():  # ?password=29AF622358&id=43
+    print(request.args)
     if request.args.get('password') == '29AF622358':
         try:
             data = request.get_json()
