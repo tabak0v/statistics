@@ -24,8 +24,8 @@ def show_graphs():
         os.rmdir("graphs")
         os.makedirs(final_directory)
         plt.savefig('graphs/target_2_4.png')
-    except Exception:
-        return jsonify({'ERROR': 'Error occurred when deleting files'})
+    except Exception as err:
+        return jsonify({'ERROR': err.__class__.__name__})
     return 'graphs/target_2_4.png'
 
 
@@ -51,8 +51,8 @@ def add_data():  # ?password=29AF622358&id=43
         df = pd.DataFrame(data)
         df.to_csv('data.csv', mode='a')
         return jsonify({'SUCCESS': 'Data appended successfully!'})
-    except Exception:
-        return jsonify({'ERROR': 'Error occurred when adding data'})
+    except Exception as err:
+        return jsonify({'ERROR': err.__class__.__name__})
 
 
 @app.route('/delete_data', methods=['DELETE', 'GET'])
@@ -63,8 +63,8 @@ def delete_data():  # ?password=29AF622358&id=43
         df = df.drop([id])
         df.to_csv('data.csv')
         return jsonify({'SUCCESS': 'Data has been added!'})
-    except Exception:
-        return jsonify({'ERROR': 'Error occurred when deleting data'})
+    except Exception as err:
+        return jsonify({'ERROR': err.__class__.__name__})
 
 
 @app.route('/clear_space', methods=['GET'])
@@ -72,5 +72,5 @@ def delete_data():  # ?password=29AF622358&id=43
     try:
         os.rmdir("graphs")
         return jsonify({'SUCCESS': 'Data has been added!'})
-    except Exception:
-        return jsonify({'ERROR': 'Error occurred when deleting files'})
+    except Exception as err:
+        return jsonify({'ERROR': err.__class__.__name__})
