@@ -1,7 +1,7 @@
 import pandas as pd
 
 data = {
-  "GPA": 4.5,
+  "GPA": 5,
   "cleaner": "Сами убираете комнату",
   "grade": "9 класс",
   "residents": "Живу в комнате с кем-то",
