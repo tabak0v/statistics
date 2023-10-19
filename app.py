@@ -39,6 +39,7 @@ def show_data():
 def add_data():  # ?password=29AF622358&id=43
     try:
         data = {
+            'ID': request.args.get('ID'),
             'sex': request.args.get('sex'),
             'cleaner': request.args.get('cleaner'),
             'residents': request.args.get('residents'),
