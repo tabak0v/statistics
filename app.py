@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
 @app.route('/view_graphs', methods=['POST', 'GET'])
 def show_graphs():
-    df = pd.read_csv('data.csv', sep=',')
+    df = pd.read_csv('/home/stat57ya24/mysite/data.csv', sep=',')
     sns.kdeplot(df, x='sex', fill=True)
     current_directory = os.getcwd()
     final_directory = os.path.join(current_directory, r'graphs')
@@ -31,25 +31,26 @@ def show_graphs():
 
 @app.route('/view_data', methods=['POST', 'GET'])
 def show_data():
-    df = pd.read_csv('data.csv', sep=',')
+    df = pd.read_csv('/home/stat57ya24/mysite/data.csv', sep=',')
     return jsonify({'DF': df.values.tolist()})
 
 
 @app.route('/add_data', methods=['POST'])
 def add_data():  # ?password=29AF622358&id=43
     try:
+        rdata = request.json
         data = {
-            'sex': request.args.get('sex'),
-            'cleaner': request.args.get('cleaner'),
-            'residents': request.args.get('residents'),
-            'grade': request.args.get('grade'),
-            'room_type': request.args.get('room_type'),
-            'school': request.args.get('school'),
-            'GPA': request.args.get('GPA')
+            'sex': rdata.get('sex'),
+            'cleaner': rdata.get('cleaner'),
+            'residents': rdata.get('residents'),
+            'grade': rdata.get('grade'),
+            'room_type': rdata.get('room_type'),
+            'school': rdata.get('school'),
+            'GPA': rdata.get('GPA')
         }
-        df0 = pd.read_csv('data.csv', delimiter=',')
+        df0 = pd.read_csv('/home/stat57ya24/mysite/data.csv', delimiter=',')
         df = pd.DataFrame(data, index=[df0.shape[0] + 1])
-        df.to_csv('data.csv', mode='a', index=False, header=False)
+        df.to_csv('/home/stat57ya24/mysite/data.csv', mode='a', index=False, header=False)
         return jsonify({'SUCCESS': 'Data appended successfully!'})
     except Exception as err:
         return jsonify({'ERROR': err.__class__.__name__})
@@ -59,9 +60,9 @@ def add_data():  # ?password=29AF622358&id=43
 def delete_data():  # ?password=29AF622358&id=43
     try:
         id = int(request.args.get('id'))
-        df = pd.read_csv('data.csv', delimiter=',')
+        df = pd.read_csv('mysite/data.csv', delimiter=',')
         df = df.drop([id])
-        df.to_csv('data.csv')
+        df.to_csv('/home/stat57ya24/mysite/data.csv')
         return jsonify({'SUCCESS': 'Data has been added!'})
     except Exception as err:
         return jsonify({'ERROR': err.__class__.__name__})

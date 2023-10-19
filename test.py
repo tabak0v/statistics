@@ -1,14 +1,14 @@
 import pandas as pd
 
 data = {
-        "ID": "2",
-        "GPA": "4.35",
-        "cleaner": "Уборкой занимается кто-то другой",
-        "grade": "10 класс",
-        "residents": "Живу в комнате с кем-то",
-        "room_type": "Идеально чисто",
-        "school": "ГБОУ Лицей Вторая школа",
-        "sex": "Мужской"
-        }
-df = pd.DataFrame(data, index=[int(data["ID"])])
-df.to_csv('data.csv', mode='a', index=False)
+  "GPA": 4.5,
+  "cleaner": "Сами убираете комнату",
+  "grade": "9 класс",
+  "residents": "Живу в комнате с кем-то",
+  "room_type": "Достаточно чисто",
+  "school": "ГБОУ Школа №57",
+  "sex": "Мужской"
+}
+df0 = pd.read_csv('data.csv', delimiter=',')
+df = pd.DataFrame(data, index=[df0.shape[0] + 1])
+df.to_csv('data.csv', mode='a', index=False, header=False)
