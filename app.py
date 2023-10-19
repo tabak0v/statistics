@@ -14,7 +14,7 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 
-@app.post('/view_graphs')
+@app.route('/view_graphs', methods=['POST', 'GET'])
 def show_graphs():
     df = pd.read_csv('data.csv', sep=',')
     sns.kdeplot(df, x='sex', fill=True)
@@ -29,27 +29,26 @@ def show_graphs():
     return 'graphs/target_2_4.png'
 
 
-@app.post('/view_data')
+@app.route('/view_data', methods=['POST', 'GET'])
 def show_data():
     df = pd.read_csv('data.csv', sep=',')
     return jsonify({'DF': df.values.tolist()})
 
 
-@app.route('/add_data', methods=['POST', 'GET'])
+@app.route('/add_data', methods=['POST'])
 def add_data():  # ?password=29AF622358&id=43
     try:
-        args = request.get_json()
         data = {
-            'sex': args['sex'],
-            'cleaner': args['cleaner'],
-            'residents': args['residents'],
-            'grade': args['grade'],
-            'room_type': args['room_type'],
-            'school': args['school'],
-            'GPA': args['GPA']
+            'sex': request.args.get('sex'),
+            'cleaner': request.args.get('cleaner'),
+            'residents': request.args.get('residents'),
+            'grade': request.args.get('grade'),
+            'room_type': request.args.get('room_type'),
+            'school': request.args.get('school'),
+            'GPA': request.args.get('GPA')
         }
-        df = pd.DataFrame(data)
-        df.to_csv('data.csv', mode='a')
+        df = pd.DataFrame(data, index=[int(data["ID"])])
+        df.to_csv('data.csv', mode='a', index=False, header=False)
         return jsonify({'SUCCESS': 'Data appended successfully!'})
     except Exception as err:
         return jsonify({'ERROR': err.__class__.__name__})
