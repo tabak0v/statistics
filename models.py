@@ -7,3 +7,4 @@ class Forms:
         self.room_type = room_type
         self.school = school
         self.GPA = GPA
+
