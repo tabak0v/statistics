@@ -1,0 +1,24 @@
+.container {
+    text-align: center;
+    margin: 50px;
+}
+
+#chartContainer {
+    width: 80%;
+    height: 400px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+}
+
+.parameters {
+    margin-top: 20px;
+}
+
+#parameterForm {
+    display: inline-block;
+}
+
+#parameter {
+    margin-right: 10px;
+}
+

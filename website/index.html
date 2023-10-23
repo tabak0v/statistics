@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>График</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Постройте свой график</h1>
+        <div id="chartContainer"></div>
+        <div class="parameters">
+            <h2>Параметры</h2>
+            <form id="parameterForm">
+                <label for="parameter">Выберите параметр:</label>
+                <select id="parameter">
+                    <option value="GPA">GPA</option>
+                    <option value="sex">Пол</option>
+                    <option value="room_type">Тип комнаты</option>
+                    <!-- Добавьте другие параметры -->
+                </select>
+                <button id="buildChart">Построить график</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
