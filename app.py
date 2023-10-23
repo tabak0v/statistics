@@ -46,7 +46,7 @@ def add_data():  # ?password=29AF622358&id=43
             'grade': rdata.get('grade'),
             'room_type': rdata.get('room_type'),
             'school': rdata.get('school'),
-            'GPA': rdata.get('GPA')
+            'GPA': float(rdata.get('GPA').replace(",", "."))
         }
         df0 = pd.read_csv('/home/stat57ya24/mysite/data.csv', delimiter=',')
         df = pd.DataFrame(data, index=[df0.shape[0] + 1])
