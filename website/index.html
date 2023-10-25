@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <html lang="'ru">
+
 <head>
     <title>Постройте график</title>
     <style>
         body {
-            background-color: #f0f0f0;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
@@ -18,7 +20,7 @@
             margin: 0;
         }
         #container {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.7);
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 20px;
@@ -27,9 +29,13 @@
         }
         #contact {
             margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px;
         }
         #team-photo {
             max-width: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px;
         }
     </style>
 </head>
@@ -39,7 +45,7 @@
         <label for="param">Выберите параметр:</label>
         <select id="param">
             <option value="param1">GPA</option>
-            <option value="param2">Чистота комнаты</option>
+            <option value="param2">Чистота в комнате</option>
             <option value="param3">Размер члена</option>
         </select>
         <canvas id="myChart" width="400" height="200"></canvas>
@@ -59,7 +65,7 @@
     <script>
         const canvas = document.getElementById('myChart');
         const paramSelect = document.getElementById('param');
-        #todo: change distribution
+
         function calculateNormalDistribution(mu, sigma, x) {
             return (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-((x - mu) ** 2) / (2 * sigma ** 2));
         }
@@ -71,7 +77,7 @@
             }
             return data;
         }
-        #todo: change params
+
         const data = {
             param1: generateNormalDistributionData(0, 1),
             param2: generateNormalDistributionData(1, 2),
@@ -84,7 +90,7 @@
             data: {
                 labels: Array.from({ length: data.param1.length }, (_, i) => i + 1),
                 datasets: [{
-                    label: 'Плотность нормального распределения', #todo: change name to data's type distribution
+                    label: 'Плотность нормального распределения',
                     data: data.param1,
                     backgroundColor: 'rgba(75, 192, 192, 0.5)',
                     borderColor: 'rgba(75, 192, 192, 1)',
@@ -111,4 +117,3 @@
     </script>
 </body>
 </html>
-#todo: add xlabel according to the params
