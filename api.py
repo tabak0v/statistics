@@ -27,6 +27,13 @@ def add_data():  # ?password=29AF622358&id=43
         df0 = pd.read_csv('/home/stat57ya24/mysite/data.csv', delimiter=',')
         df = pd.DataFrame(data, index=[df0.shape[0] + 1])
         df.to_csv('/home/stat57ya24/mysite/data.csv', mode='a', index=False, header=False)
+        data = pd.read_csv('/home/stat57ya24/mysite/data.csv', delimiter=',')
+        data["school"] = data["school"].apply(lambda x: check_school(x))
+        data["sex"] = data["sex"].apply(lambda x: 'male' if x == "Мужской" else "female")
+        data["room_type"] = data["room_type"].apply(lambda x: check_room(x))
+        data["cleaner"] = data["cleaner"].apply(lambda x: "me" if x == "Сами убираете комнату" else "other")
+        data["residents"] = data["residents"].apply(lambda x: "1" if x == "Живу в комнате один/одна" else "1+")
+        data["grade"] = data["grade"].apply(lambda x: int(x[:-5]))
         return jsonify({'SUCCESS': 'Data appended successfully!'})
     except Exception as err:
         return jsonify({'ERROR': err.__class__.__name__})
