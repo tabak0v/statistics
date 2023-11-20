@@ -11,6 +11,34 @@ blueprint = flask.Blueprint(
 )
 
 
+def check_school(school):
+    if school == "ГБОУ Школа №57":
+        return 1
+    elif school == "ГБОУ Школа №179":
+        return 2
+    elif school == "ГБОУ Лицей Вторая школа":
+        return 3
+    elif school == "Школа ЦПМ":
+        return 4
+    elif school == 'Школа "Летово"':
+        return 5
+    elif school == 'ГБОУ Школа №2007':
+        return 6
+    else:
+        return 7
+
+
+def check_room(room):
+    if room == "Идеально чисто":
+        return 1
+    elif room == "Достаточно чисто":
+        return 2
+    elif room == "Не очень чисто":
+        return 3
+    else:
+        return 4
+
+
 @blueprint.route('/api/add_data', methods=['POST'])
 def add_data():  # ?password=29AF622358&id=43
     try:
