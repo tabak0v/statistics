@@ -19,14 +19,14 @@ def show_graphs():
     df = pd.read_csv('/home/stat57ya24/mysite/data.csv', sep=',')
     sns.kdeplot(df, x='sex', fill=True)
     current_directory = os.getcwd()
-    final_directory = os.path.join(current_directory, r'graphs')
+    final_directory = os.path.join(current_directory, r'static/graphs')
     try:
-        os.rmdir("graphs")
+        os.rmdir("static/graphs")
         os.makedirs(final_directory)
-        plt.savefig('graphs/target_2_4.png')
+        plt.savefig('static/graphs/target_2_4.png')
     except Exception as err:
         return jsonify({'ERROR': err.__class__.__name__})
-    return 'graphs/target_2_4.png'
+    return 'static/graphs/target_2_4.png'
 
 
 @app.route('/view_data', methods=['POST', 'GET'])

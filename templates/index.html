@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="'ru">
+
+<head>
+    <title>Постройте график</title>
+    <style>
+        body {
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+        }
+        #container {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0px 0px 10px #aaa;
+        }
+        #contact {
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+        }
+        #team-photo {
+            max-width: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Постройте график</h1>
+    <form class="user" action="" method="post">
+        <div id="container">
+        <label for="param_1">Выберите тип графика:</label>
+        <select id="param_1">
+            <option value="param1_1">Диаграмма</option>
+            <option value="param1_2">Гистрограмма</option>
+            <option value="param1_3">Ящик с усами</option>
+        </select>
+        <label for="param_2">Выберите основной фактор (x) для построения графика:</label>
+        <select id="param_2">
+            <option value="param2_1">Средняя оценка</option>
+            <option value="param2_2">Чистота в комнате</option>
+            <option value="param2_3">Класс обучения</option>
+            <option value="param2_4">Пол</option>
+            <option value="param2_5">Школа обучения</option>
+            <option value="param2_6">Проживание (один или нет)</option>
+            <option value="param2_7">Способ уборки в комнате</option>
+        </select>
+        <canvas id="myChart" width="400" height="200"></canvas>
+        <label for="param_3">Выберите вторичный фактор (y) для построения графика:</label>
+        <select id="param_3">
+          <option value="param3_1">Средняя оценка</option>
+            <option value="param3_2">Чистота в комнате</option>
+            <option value="param3_3">Класс обучения</option>
+            <option value="param3_4">Пол</option>
+            <option value="param3_5">Школа обучения</option>
+            <option value="param3_6">Проживание (один или нет)</option>
+            <option value="param3_7">Способ уборки в комнате</option>
+        </select>
+    </div>
+    </form>
+    <div id="contact">
+        <h2>Контакты для связи:</h2>
+        <p>telegram: @tabakovv</p>
+        <p>telegram: @RR7B7</p>
+    </div>
+
+    <div id="team-photo">
+        <img src="/static/team.jpg" alt="Команда разработчиков" width="350">
+    </div>
+</body>
+</html>
