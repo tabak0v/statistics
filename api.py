@@ -62,6 +62,7 @@ def add_data():  # ?password=29AF622358&id=43
         data["cleaner"] = data["cleaner"].apply(lambda x: "me" if x == "Сами убираете комнату" else "other")
         data["residents"] = data["residents"].apply(lambda x: "1" if x == "Живу в комнате один/одна" else "1+")
         data["grade"] = data["grade"].apply(lambda x: int(x[:-5]))
+        data.to_csv('/home/stat57ya24/mysite/data.csv', mode='w', index=False)
         return jsonify({'SUCCESS': 'Data appended successfully!'})
     except Exception as err:
         return jsonify({'ERROR': err.__class__.__name__})

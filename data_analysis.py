@@ -45,5 +45,6 @@ data["room_type"] = data["room_type"].apply(lambda x: check_room(x))
 data["cleaner"] = data["cleaner"].apply(lambda x: "me" if x == "Сами убираете комнату" else "other")
 data["residents"] = data["residents"].apply(lambda x: "1" if x == "Живу в комнате один/одна" else "1+")
 data["grade"] = data["grade"].apply(lambda x: int(x[:-5]))
+data.to_csv('data.csv', mode='w', index=False)
 
 print(data.head(10))
