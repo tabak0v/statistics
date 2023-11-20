@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import os
 
 app = Flask(__name__)
-
+app.register_blueprint(api.blueprint)
 if __name__ == "__main__":
     app.run(debug=True)
 
@@ -33,39 +33,6 @@ def show_graphs():
 def show_data():
     df = pd.read_csv('/home/stat57ya24/mysite/data.csv', sep=',')
     return jsonify({'DF': df.values.tolist()})
-
-
-@app.route('/add_data', methods=['POST'])
-def add_data():  # ?password=29AF622358&id=43
-    try:
-        rdata = request.json
-        data = {
-            'sex': rdata.get('sex'),
-            'cleaner': rdata.get('cleaner'),
-            'residents': rdata.get('residents'),
-            'grade': rdata.get('grade'),
-            'room_type': rdata.get('room_type'),
-            'school': rdata.get('school'),
-            'GPA': float(rdata.get('GPA').replace(",", "."))
-        }
-        df0 = pd.read_csv('/home/stat57ya24/mysite/data.csv', delimiter=',')
-        df = pd.DataFrame(data, index=[df0.shape[0] + 1])
-        df.to_csv('/home/stat57ya24/mysite/data.csv', mode='a', index=False, header=False)
-        return jsonify({'SUCCESS': 'Data appended successfully!'})
-    except Exception as err:
-        return jsonify({'ERROR': err.__class__.__name__})
-
-
-@app.route('/delete_data', methods=['DELETE', 'GET'])
-def delete_data():  # ?password=29AF622358&id=43
-    try:
-        id = int(request.args.get('id'))
-        df = pd.read_csv('mysite/data.csv', delimiter=',')
-        df = df.drop([id])
-        df.to_csv('/home/stat57ya24/mysite/data.csv')
-        return jsonify({'SUCCESS': 'Data has been added!'})
-    except Exception as err:
-        return jsonify({'ERROR': err.__class__.__name__})
 
 
 @app.route('/clear_space', methods=['DELETE', 'GET'])

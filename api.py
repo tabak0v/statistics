@@ -11,37 +11,37 @@ blueprint = flask.Blueprint(
 )
 
 
-@blueprint.route('/api/add_data', methods=['POST', 'GET'])
+@blueprint.route('/api/add_data', methods=['POST'])
 def add_data():  # ?password=29AF622358&id=43
-    print(request.get_json())
     try:
-        args = request.get_json()
+        rdata = request.json
         data = {
-            'sex': args['sex'],
-            'cleaner': args['cleaner'],
-            'residents': args['residents'],
-            'grade': args['grade'],
-            'room_type': args['room_type'],
-            'school': args['school'],
-            'GPA': args['GPA']
+            'sex': rdata.get('sex'),
+            'cleaner': rdata.get('cleaner'),
+            'residents': rdata.get('residents'),
+            'grade': rdata.get('grade'),
+            'room_type': rdata.get('room_type'),
+            'school': rdata.get('school'),
+            'GPA': float(rdata.get('GPA').replace(",", "."))
         }
-        df = pd.DataFrame(data)
-        df.to_csv('data.csv', mode='a')
+        df0 = pd.read_csv('/home/stat57ya24/mysite/data.csv', delimiter=',')
+        df = pd.DataFrame(data, index=[df0.shape[0] + 1])
+        df.to_csv('/home/stat57ya24/mysite/data.csv', mode='a', index=False, header=False)
         return jsonify({'SUCCESS': 'Data appended successfully!'})
-    except Exception:
-        return jsonify({'ERROR': 'Error occurred when adding data'})
+    except Exception as err:
+        return jsonify({'ERROR': err.__class__.__name__})
 
 
 @blueprint.route('/api/delete_data', methods=['DELETE', 'GET'])
 def delete_data():  # ?password=29AF622358&id=43
     try:
         id = int(request.args.get('id'))
-        df = pd.read_csv('data.csv', delimiter=',')
+        df = pd.read_csv('mysite/data.csv', delimiter=',')
         df = df.drop([id])
-        df.to_csv('data.csv')
+        df.to_csv('/home/stat57ya24/mysite/data.csv')
         return jsonify({'SUCCESS': 'Data has been added!'})
-    except Exception:
-        return jsonify({'ERROR': 'Error occurred when deleting data'})
+    except Exception as err:
+        return jsonify({'ERROR': err.__class__.__name__})
 
 
 @blueprint.route('/api/clear_space', methods=['GET'])
