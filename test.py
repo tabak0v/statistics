@@ -12,6 +12,7 @@ for main in ['sex', 'cleaner', 'grade', 'residents', 'room_type', 'school']:
         sns.set_palette("Set3")
         tips = sns.load_dataset("tips")
         sns.set(style="whitegrid")
-        sns.boxplot(x=main, y=param, data=df)
-        plt.savefig(f'static/assets/img/graph_box_{main}')
+        sns.kdeplot(df, x=param, fill=True)
+        plt.ylabel("")
+        plt.savefig(f'static/assets/img/graph_kde')
 

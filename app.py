@@ -26,7 +26,7 @@ def show_graphs():
         except Exception as err:
             return jsonify({'ERROR': err.__class__.__name__})
         return render_template('index.html', pic=pic)
-    return render_template('index.html', pic='graph_kde.png')
+    return render_template('index.html', pic=f'/static/assets/img/graph_kde.png')
 
 
 @app.route('/view_data', methods=['GET'])

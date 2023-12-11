@@ -4,13 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Dashboard - Brand</title>
+    <title>Statistics 4ever</title>
     <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="../static/assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="../static/assets/css/Footer-Clean-icons.css">
     <link rel="stylesheet" href="../static/assets/css/Form-Select---Full-Date---Month-Day-Year.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 
 <body id="page-top">
@@ -22,7 +23,7 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Графечки</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/"><i class="fas fa-tachometer-alt"></i><span>Графечки</span></a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="/view_data"><i class="fas fa-table"></i><span>Исходные данные</span></a></li>
                 </ul>
@@ -36,29 +37,29 @@
                         <h3 class="text-center text-dark mb-0" style="margin-top: 20px;margin-right: 20px;">Драсте, здесь Вы можете построить любой интересующий Вас график</h3>
                     </div>
                     <div class="row">
-                        <div class="col-lg-7 col-xl-8">
+                        <div>
                             <div class="card shadow mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h6 class="text-primary fw-bold m-0">Магия творится здесь:</h6>
-                                    <div class="row">
-                                        <div class="col-sm-12">
+                                    <div class="row align-items-center">
+                                        <div class="col-sm-12 align-items-center">
                                             <form method="POST">
-                                            <p style="margin-bottom: 0">Выбор типа графика:</p>
+                                            <p style="margin-top: 10px;margin-bottom: 10px">Выбор типа графика:</p>
                                             <select class="display-inline-block" name="graph">
                                                 <option value="box">Box plot (Ящик с усами)</option>
                                                 <option value="pie">Pie (Круговая диаграмма)</option>
-                                                <option value="kde" selected>Диаграмма рассеяния</option>
+                                                <option value="kde">Диаграмма рассеяния</option>
                                             </select>
-                                            <p style="margin-bottom: 0">Выбор основного фактора для построения графика (x):</p>
+                                            <p style="margin-top: 10px;margin-bottom: 10px">Фактор для построения графика (x):</p>
                                             <select class="display-inline-block" name="param">
-                                                <option value="1_sex">Пол (кат)</option>
-                                                <option value="1_cleaner">Вариант уборки комнаты (кат)</option>
-                                                <option value="1_residents">количество людей в комнате (кат)</option>
-                                                <option value="1_grade">Класс обучения (порядк)</option>
-                                                <option value="1_room_type">Уровень чистоты комнаты (порядк)</option>
-                                                <option value="1_school">Школа обучения (кат)</option>
-                                                <option value="1_GPA">Среднаяя оценка по всем предметам (кол)</option>
+                                                <option value="sex">Пол (кат)</option>
+                                                <option value="cleaner">Вариант уборки комнаты (кат)</option>
+                                                <option value="residents">количество людей в комнате (кат)</option>
+                                                <option value="grade">Класс обучения (порядк)</option>
+                                                <option value="room_type">Уровень чистоты комнаты (порядк)</option>
+                                                <option value="school">Школа обучения (кат)</option>
                                             </select>
+                                                <button class="btn btn-primary d-block w-50" style="margin-top: 10px;margin-bottom: 10px" type="submit" role="button" name="btn">Построить график</button>
                                             </form>
                                             </div>
                                     </div>
@@ -71,11 +72,6 @@
                     </div>
                 </div>
             </div>
-            <footer class="bg-white sticky-footer">
-                <div class="container my-auto">
-                    <div class="text-center my-auto copyright"><span>Copyright © The1stsquadron 2023</span></div>
-                </div>
-            </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
     <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
