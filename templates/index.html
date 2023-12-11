@@ -1,85 +1,84 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<html lang="'ru">
+<html>
 
 <head>
-    <title>Постройте график</title>
-    <style>
-        body {
-            background: url('background.jpg') no-repeat center center fixed;
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            margin: 0;
-        }
-        #container {
-            background-color: rgba(255, 255, 255, 0.7);
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 20px;
-            margin: 20px;
-            box-shadow: 0px 0px 10px #aaa;
-        }
-        #contact {
-            margin-top: 20px;
-            background-color: rgba(255, 255, 255, 0.7);
-            padding: 10px;
-        }
-        #team-photo {
-            max-width: 100%;
-            background-color: rgba(255, 255, 255, 0.7);
-            padding: 10px;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - Brand</title>
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="../static/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../static/assets/css/Footer-Clean-icons.css">
+    <link rel="stylesheet" href="../static/assets/css/Form-Select---Full-Date---Month-Day-Year.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
-<body>
-    <h1>Постройте график</h1>
-    <form class="user" action="" method="post">
-        <div id="container">
-        <label for="param_1">Выберите тип графика:</label>
-        <select id="param_1">
-            <option value="param1_1">Диаграмма</option>
-            <option value="param1_2">Гистрограмма</option>
-            <option value="param1_3">Ящик с усами</option>
-        </select>
-        <label for="param_2">Выберите основной фактор (x) для построения графика:</label>
-        <select id="param_2">
-            <option value="param2_1">Средняя оценка</option>
-            <option value="param2_2">Чистота в комнате</option>
-            <option value="param2_3">Класс обучения</option>
-            <option value="param2_4">Пол</option>
-            <option value="param2_5">Школа обучения</option>
-            <option value="param2_6">Проживание (один или нет)</option>
-            <option value="param2_7">Способ уборки в комнате</option>
-        </select>
-        <canvas id="myChart" width="400" height="200"></canvas>
-        <label for="param_3">Выберите вторичный фактор (y) для построения графика:</label>
-        <select id="param_3">
-          <option value="param3_1">Средняя оценка</option>
-            <option value="param3_2">Чистота в комнате</option>
-            <option value="param3_3">Класс обучения</option>
-            <option value="param3_4">Пол</option>
-            <option value="param3_5">Школа обучения</option>
-            <option value="param3_6">Проживание (один или нет)</option>
-            <option value="param3_7">Способ уборки в комнате</option>
-        </select>
-    </div>
-    </form>
-    <div id="contact">
-        <h2>Контакты для связи:</h2>
-        <p>telegram: @tabakovv</p>
-        <p>telegram: @RR7B7</p>
-    </div>
 
-    <div id="team-photo">
-        <img src="/static/team.jpg" alt="Команда разработчиков" width="350">
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink shake animated"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>THE1SQUADRON</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Графечки</span></a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link" href="/view_data"><i class="fas fa-table"></i><span>Исходные данные</span></a></li>
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div class="container-fluid">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-center text-dark mb-0" style="margin-top: 20px;margin-right: 20px;">Драсте, здесь Вы можете построить любой интересующий Вас график</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-7 col-xl-8">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary fw-bold m-0">Магия творится здесь:</h6>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <p style="margin-bottom: 0">Выбор типа графика:</p>
+                                            <select class="display-inline-block">
+                                                <option value="box" selected="">Box plot (Ящик с усами)</option>
+                                                <option value="pie">Pie (Круговая диаграмма)</option>
+                                            </select>
+                                            <p style="margin-bottom: 0">Выбор основного фактора для построения графика (x):</p>
+                                            <select class="display-inline-block">
+                                                <option value="1_sex" selected="">Пол (кат)</option>
+                                                <option value="1_cleaner">Вариант уборки комнаты (кат)</option>
+                                                <option value="1_residents">количество людей в комнате (кат)</option>
+                                                <option value="1_grade">Класс обучения (порядк)</option>
+                                                <option value="1_room_type">Уровень чистоты комнаты (порядк)</option>
+                                                <option value="1_school">Школа обучения (кат)</option>
+                                                <option value="1_GPA">Среднаяя оценка по всем предметам (кол)</option>
+                                            </select>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © The1stsquadron 2023</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
+    <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../static/assets/js/chart.min.js"></script>
+    <script src="../static/assets/js/bs-init.js"></script>
+    <script src="../static/assets/js/theme.js"></script>
 </body>
+
 </html>

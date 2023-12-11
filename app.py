@@ -1,10 +1,9 @@
-from flask import request, Response, jsonify
-import json
-from http import HTTPStatus
-from models import Forms
+from flask import jsonify, render_template
+from models import Person
 from flask import Flask
 import pandas as pd
 import seaborn as sns
+import api
 import matplotlib.pyplot as plt
 import os
 
@@ -14,31 +13,26 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 
-@app.route('/view_graphs', methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])
 def show_graphs():
-    df = pd.read_csv('/home/stat57ya24/mysite/data.csv', sep=',')
-    sns.kdeplot(df, x='sex', fill=True)
-    current_directory = os.getcwd()
-    final_directory = os.path.join(current_directory, r'static/graphs')
     try:
-        os.rmdir("static/graphs")
-        os.makedirs(final_directory)
-        plt.savefig('static/graphs/target_2_4.png')
+        df = pd.read_csv('data.csv', sep=',')
+
     except Exception as err:
         return jsonify({'ERROR': err.__class__.__name__})
-    return 'static/graphs/target_2_4.png'
+    return render_template('index.html')
 
 
-@app.route('/view_data', methods=['POST', 'GET'])
+@app.route('/view_data', methods=['GET'])
 def show_data():
-    df = pd.read_csv('/home/stat57ya24/mysite/data.csv', sep=',')
-    return jsonify({'DF': df.values.tolist()})
-
-
-@app.route('/clear_space', methods=['DELETE', 'GET'])
-def delete_files():  # ?password=29AF622358&id=43
     try:
-        os.rmdir("graphs")
-        return jsonify({'SUCCESS': 'Data has been added!'})
+        df = pd.read_csv('data.csv', sep=',')  # /home/stat57ya24/mysite/
+        data = []
+        for row in df.itertuples():
+            person = Person(*row[1:])
+            data.append(person)
+        print(data)
+        return render_template('table.html', data=data)
     except Exception as err:
         return jsonify({'ERROR': err.__class__.__name__})
+

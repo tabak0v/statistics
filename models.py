@@ -1,4 +1,4 @@
-class Forms:
+class Person:
     def __init__(self, sex, cleaner, residents, grade, room_type, school, GPA):
         self.sex = sex
         self.cleaner = cleaner
