@@ -1,4 +1,4 @@
-from flask import jsonify, render_template
+from flask import jsonify, render_template, request
 from models import Person
 from flask import Flask
 import pandas as pd
@@ -15,12 +15,18 @@ if __name__ == "__main__":
 
 @app.route('/', methods=['POST', 'GET'])
 def show_graphs():
-    try:
-        df = pd.read_csv('data.csv', sep=',')
-
-    except Exception as err:
-        return jsonify({'ERROR': err.__class__.__name__})
-    return render_template('index.html')
+    if request.method == 'POST':
+        try:
+            graph_type = request.form.get('graph')
+            param = request.form.get('param')
+            if graph_type == 'kde':
+                pic = f'/static/assets/img/graph_{graph_type}.png'
+            else:
+                pic = f'/static/assets/img/graph_{graph_type}_{param}.png'
+        except Exception as err:
+            return jsonify({'ERROR': err.__class__.__name__})
+        return render_template('index.html', pic=pic)
+    return render_template('index.html', pic='graph_kde.png')
 
 
 @app.route('/view_data', methods=['GET'])

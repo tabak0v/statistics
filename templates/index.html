@@ -42,14 +42,16 @@
                                     <h6 class="text-primary fw-bold m-0">Магия творится здесь:</h6>
                                     <div class="row">
                                         <div class="col-sm-12">
+                                            <form method="POST">
                                             <p style="margin-bottom: 0">Выбор типа графика:</p>
-                                            <select class="display-inline-block">
-                                                <option value="box" selected="">Box plot (Ящик с усами)</option>
+                                            <select class="display-inline-block" name="graph">
+                                                <option value="box">Box plot (Ящик с усами)</option>
                                                 <option value="pie">Pie (Круговая диаграмма)</option>
+                                                <option value="kde" selected>Диаграмма рассеяния</option>
                                             </select>
                                             <p style="margin-bottom: 0">Выбор основного фактора для построения графика (x):</p>
-                                            <select class="display-inline-block">
-                                                <option value="1_sex" selected="">Пол (кат)</option>
+                                            <select class="display-inline-block" name="param">
+                                                <option value="1_sex">Пол (кат)</option>
                                                 <option value="1_cleaner">Вариант уборки комнаты (кат)</option>
                                                 <option value="1_residents">количество людей в комнате (кат)</option>
                                                 <option value="1_grade">Класс обучения (порядк)</option>
@@ -57,11 +59,12 @@
                                                 <option value="1_school">Школа обучения (кат)</option>
                                                 <option value="1_GPA">Среднаяя оценка по всем предметам (кол)</option>
                                             </select>
+                                            </form>
                                             </div>
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <div class="chart-area"></div>
+                                    <div class="chart-area"><img src="{{ pic }}"></div>
                                 </div>
                             </div>
                         </div>
