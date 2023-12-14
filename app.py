@@ -25,7 +25,7 @@ def show_graphs():
                 pic = f'/static/assets/img/graph_{graph_type}_{param}.png'
         except Exception as err:
             return jsonify({'ERROR': err.__class__.__name__})
-        return render_template('index.html', pic=pic)
+        return render_template('index.html', pic=pic, chosen_graph=graph_type, chosen_param=param)
     return render_template('index.html', pic=f'/static/assets/img/graph_kde.png')
 
 
