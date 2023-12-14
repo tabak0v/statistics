@@ -1,18 +1,14 @@
 import pandas as pd
-from models import Person
 import seaborn as sns
 import matplotlib.pyplot as plt
 
 
 df = pd.read_csv('data.csv', sep=',')
 param = 'GPA'
-for main in ['sex', 'cleaner', 'grade', 'residents', 'room_type', 'school']:
-        sns.set(style="whitegrid")
-        plt.figure(figsize=(8, 6))
-        sns.set_palette("Set3")
-        tips = sns.load_dataset("tips")
-        sns.set(style="whitegrid")
-        sns.kdeplot(df, x=param, fill=True)
-        plt.ylabel("")
-        plt.savefig(f'static/assets/img/graph_kde')
+plt.figure(figsize=(8, 6))
+sns.set(style="whitegrid")
+df['sex'].value_counts().plot(kind='pie', autopct='%1.1f%%', legend=False)
+plt.ylabel('')
+plt.savefig(f'static/assets/img/graph_pie_sex.png')
+plt.show()
 
