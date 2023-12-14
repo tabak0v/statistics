@@ -42,3 +42,10 @@ def show_data():
     except Exception as err:
         return jsonify({'ERROR': err.__class__.__name__})
 
+
+@app.route('/contact', methods=['GET'])
+def see_contacts():
+    try:
+        return render_template('qandcontact.html')
+    except Exception as err:
+        return jsonify({'ERROR': err.__class__.__name__})

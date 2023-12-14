@@ -4,45 +4,51 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Statistics 4ever</title>
     <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
-    <link rel="stylesheet" href="../static/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+    <link rel="stylesheet" href="../static/assets/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../static/assets/css/Black-Navbar.css">
     <link rel="stylesheet" href="../static/assets/css/Footer-Clean-icons.css">
     <link rel="stylesheet" href="../static/assets/css/Form-Select---Full-Date---Month-Day-Year.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="../static/assets/css/Responsive-Active-Navbar.css">
+    <title>Statistics 4ever</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 
 <body id="page-top">
     <div id="wrapper">
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
-            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-laugh-wink shake animated"></i></div>
-                    <div class="sidebar-brand-text mx-3"><span>THE1SQUADRON</span></div>
-                </a>
-                <hr class="sidebar-divider my-0">
-                <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link active" href="/"><i class="fas fa-tachometer-alt"></i><span>Графечки</span></a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="/view_data"><i class="fas fa-table"></i><span>Исходные данные</span></a></li>
-                </ul>
-                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
-            </div>
-        </nav>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
-                <div class="container-fluid">
-                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-center text-dark mb-0" style="margin-top: 20px;margin-right: 20px;">Драсте, здесь Вы можете построить любой интересующий Вас график</h3>
+                <nav class="navbar navbar-light navbar-expand-md navbar-fixed-top navigation-clean-button" style="background: rgb(34, 34, 34);border-style: none;padding-top: 0;padding-bottom: 10px;">
+                    <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                        <div><a class="navbar-brand" href="#"><span>The1stSquadron</span> </a></div>
+                        <div class="collapse navbar-collapse" id="navcol-1" style="color: rgb(255,255,255);">
+                            <ul class="navbar-nav nav-right">
+                                <li class="nav-item"><a class="nav-link active" href="/" style="color: rgba(224,217,217,0.9);">Графики</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/view_data" style="color: rgba(224,217,217,0.9);">Данные</a></li>
+                                <li class="nav-item"></li>
+                                <li class="nav-item"><a class="nav-link" href="/contact" style="color: rgba(224,217,217,0.9);">Контакты</a></li>
+                            </ul>
+                            <p class="ms-auto navbar-text actions"> </p>
+                        </div>
                     </div>
+                </nav>
+                <section class="py-4 py-xl-5" style="margin-top: -15px;margin-bottom: -20px;">
+                    <div class="container">
+                        <div class="text-center p-4 p-lg-5" style="margin-bottom: -20px;">
+                            <h1 class="fw-bold mb-4" style="margin-bottom: 0px;">Data science - DS, тогда анализ данных - АД?</h1>
+                        </div>
+                    </div>
+                </section>
+                <div class="container-fluid justify-content-between align-items-center">
                     <div class="row">
-                        <div>
-                            <div class="card shadow mb-4">
-                                <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h6 class="text-primary fw-bold m-0">Магия творится здесь:</h6>
-                                    <div class="row align-items-center">
-                                        <div class="col-sm-12 align-items-center">
+                        <div class="col-lg-7 col-xl-8" style="margin-top: 15px;">
+                            <div class="card shadow mb-4" style="margin-top: 20px;">
+                                <div class="card-header d-flex justify-content-between align-items-center" style="margin-top: 10px;">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-sm-12 justify-content-between align-items-center">
                                             <form method="POST">
                                             <p style="margin-top: 10px;margin-bottom: 10px">Выбор типа графика:</p>
                                             <select class="display-inline-block" name="graph">
@@ -59,24 +65,29 @@
                                                 <option value="room_type">Уровень чистоты комнаты (порядк)</option>
                                                 <option value="school">Школа обучения (кат)</option>
                                             </select>
-                                                <button class="btn btn-primary d-block w-50" style="margin-top: 10px;margin-bottom: 10px" type="submit" role="button" name="btn">Построить график</button>
+                                                <button class="btn btn-primary d-block w-50" style="border-radius: 10px;margin-top: 10px;margin-bottom: 10px" type="submit" role="button" name="btn">Построить график</button>
                                             </form>
-                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="card-body">
-                                    <div class="chart-area"><img src="{{ pic }}"></div>
+                                <div class="card-body" style="margin-top: 0px;">
+                                    <div class="imgbox"><img style="max-width: 100%; max-height: 100vh; width: auto; margin: auto;" class="center-fit" src="{{ pic }}"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <footer class="bg-white sticky-footer" style="margin-bottom: 0px;margin-top: 40px;">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © The1stsquadron 2023</span></div>
+                </div>
+            </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
     <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../static/assets/js/chart.min.js"></script>
     <script src="../static/assets/js/bs-init.js"></script>
+    <script src="../static/assets/js/Responsive-Active-Navbar.js"></script>
     <script src="../static/assets/js/theme.js"></script>
 </body>
 
