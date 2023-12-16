@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv('data.csv', sep=',')
 param = 'GPA'
-plt.figure(figsize=(8, 6))
-sns.set(style="whitegrid")
-df['room_type'].value_counts().plot(kind='pie', autopct='%1.1f%%', legend=False, fontsize=20)
-plt.ylabel('')
-plt.show()
-
+for elem in ['school']:
+    plt.figure(figsize=(8, 6))
+    sns.set(style="whitegrid", font_scale=0.6)
+    sns.violinplot(x=elem, y='GPA', data=df)
+    plt.savefig(f'static/assets/img/graph_violin_{elem}.png')
+    plt.show()

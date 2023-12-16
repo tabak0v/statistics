@@ -58,6 +58,12 @@
                                                             <option value="box">Box (Ящик с усами)</option>
                                                         {% endif %}
 
+                                                        {% if chosen_graph == "violin" %}
+                                                            <option value="violin" selected>Violin (скрипичный график)</option>
+                                                        {% else %}
+                                                            <option value="violin">Violin (скрипичный график)</option>
+                                                        {% endif %}
+
                                                         {% if chosen_graph == "pie" %}
                                                             <option value="pie" selected>Pie (Круговая диаграмма)</option>
                                                         {% else %}
