@@ -19,14 +19,11 @@ def show_graphs():
         try:
             graph_type = request.form.get('graph')
             param = request.form.get('param')
-            if graph_type == 'kde':
-                pic = f'/static/assets/img/graph_{graph_type}.png'
-            else:
-                pic = f'/static/assets/img/graph_{graph_type}_{param}.png'
+            pic = f'/static/assets/img/graph_{graph_type}_{param}.png'
         except Exception as err:
             return jsonify({'ERROR': err.__class__.__name__})
         return render_template('index.html', pic=pic, chosen_graph=graph_type, chosen_param=param)
-    return render_template('index.html', pic=f'/static/assets/img/graph_kde.png')
+    return render_template('index.html', pic=f'/static/assets/img/example.png')
 
 
 @app.route('/view_data', methods=['GET'])
