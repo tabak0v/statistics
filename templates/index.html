@@ -53,9 +53,9 @@
                                             <p style="margin-top: 20px;margin-bottom: 10px">Выбор типа графика:</p>
                                                     <select class="display-inline-block w-100" name="graph">
                                                         {% if chosen_graph == "box" %}
-                                                            <option value="box" selected>Box plot (Ящик с усами)</option>
+                                                            <option value="box" selected>Box (Ящик с усами)</option>
                                                         {% else %}
-                                                            <option value="box">Box plot (Ящик с усами)</option>
+                                                            <option value="box">Box (Ящик с усами)</option>
                                                         {% endif %}
 
                                                         {% if chosen_graph == "pie" %}
@@ -91,21 +91,21 @@
                                                 {% endif %}
 
                                                 {% if chosen_param == "room_type" %}
-                                                    <option value="room_type" selected>Уровень чистоты комнаты (порядк)</option>
+                                                    <option value="room_type" selected>Уровень чистоты комнаты</option>
                                                 {% else %}
-                                                    <option value="room_type">Уровень чистоты комнаты (порядк)</option>
+                                                    <option value="room_type">Уровень чистоты комнаты</option>
                                                 {% endif %}
 
                                                 {% if chosen_param == "grade" %}
-                                                    <option value="grade" selected>Класс обучения (порядк)</option>
+                                                    <option value="grade" selected>Класс обучения</option>
                                                 {% else %}
-                                                    <option value="grade">Класс обучения (порядк)</option>
+                                                    <option value="grade">Класс обучения</option>
                                                 {% endif %}
 
                                                 {% if chosen_param == "school" %}
-                                                     <option value="school" selected>Школа обучения (кат)</option>
+                                                     <option value="school" selected>Школа обучения</option>
                                                 {% else %}
-                                                     <option value="school">Школа обучения (кат)</option>
+                                                     <option value="school">Школа обучения</option>
                                                 {% endif %}
                                             </select>
                                                 <button class="btn btn-primary d-block w-100" style="border-radius: 10px;margin-top: 40px;margin-bottom: 10px" type="submit" role="button" name="btn">Построить график</button>
