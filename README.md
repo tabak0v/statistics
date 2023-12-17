@@ -1,4 +1,3 @@
 # statistics
 
-To do:
-1. test graphs, api, data output
+http://stat57ya24.pythonanywhere.com
